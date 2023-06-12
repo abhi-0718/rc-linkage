@@ -1,0 +1,4 @@
+dataset: febrl 
+operation: link_only # 'dedupe_only', 'link_only' 
+dataset_type: mysql
+geocoding: False

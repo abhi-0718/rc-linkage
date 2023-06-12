@@ -1,0 +1,7 @@
+streamlit==1.4.0
+st_aggrid
+spellchecker
+fuzzywuzzy
+pandas
+nltk
+numpy 

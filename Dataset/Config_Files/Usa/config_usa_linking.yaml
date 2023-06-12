@@ -1,0 +1,4 @@
+dataset: usa
+operation: link_only # 'dedupe_only', 'link_only' 
+dataset_type: xlsx
+geocoding: True

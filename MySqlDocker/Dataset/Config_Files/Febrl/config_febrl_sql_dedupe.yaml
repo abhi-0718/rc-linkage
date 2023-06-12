@@ -1,0 +1,4 @@
+dataset: febrl 
+operation: dedupe_only # 'dedupe_only', 'link_only' 
+dataset_type: sqlite
+geocoding: False

@@ -1,0 +1,4 @@
+dataset: febrl
+operation: dedupe_only
+dataset_type: xlsx
+geocoding: False

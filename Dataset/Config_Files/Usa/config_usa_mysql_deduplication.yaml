@@ -1,0 +1,4 @@
+dataset: usa
+operation: dedupe_only # 'dedupe_only', 'link_only' 
+dataset_type: mysql
+geocoding: True

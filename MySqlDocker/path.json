@@ -1,0 +1,21 @@
+{
+    "base_febrl_path" : "Results/Febrl/",
+    "base_custom_path" : "Results/Custom/",
+    "base_febrl_linkage": "Results/Febrl/Linkage/",
+    "base_custom_linkage": "Results/Custom/Linkage/",
+    "base_febrl_deduplication": "Results/Febrl/De-duplication/",
+    "base_custom_deduplication": "Results/Custom/De-duplication/",
+    "mu_parameters": "mu_parameters.png",
+    "match_weight": "match_weight.png",
+    "precision_recall": "precision_recall.png",
+    "roc_auc_chart": "roc_auc_chart.png",
+    "missingness": "missingness.png",
+    "columns_profile": "columns_profile.png",
+    "febrl_columns": ["rec_id", "given_name", "surname", "street_number", "address_1", "address_2", "suburb", "postcode", "state", "date_of_birth", "soc_sec_id"],
+    "custom_columns": ["given_name", "surname", "birthdate", "address", "county", "city", "state", "zip"],
+    "columns_to_encrypt": ["given_name", "surname", "address_1", "address_2", "suburb", "state"],
+    "columns_to_encrypt_usa": ["given_name","surname","birthdate","address","county","city","state","zip","latitude","longitude"]
+
+
+}
+

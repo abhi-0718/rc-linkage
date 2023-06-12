@@ -1,0 +1,295 @@
+{
+    "link_type": "dedupe_only",
+    "blocking_rules_to_generate_predictions": [
+        "l.surname = r.surname",
+        "l.postcode = r.postcode"
+    ],
+    "comparisons": [
+        {
+            "output_column_name": "given_name",
+            "comparison_levels": [
+                {
+                    "sql_condition": "\"given_name_l\" IS NULL OR \"given_name_r\" IS NULL",
+                    "label_for_charts": "Null",
+                    "is_null_level": true
+                },
+                {
+                    "sql_condition": "\"given_name_l\" = \"given_name_r\"",
+                    "label_for_charts": "Exact match given_name",
+                    "m_probability": 0.6954234294758357,
+                    "u_probability": 0.004560888518916077
+                },
+                {
+                    "sql_condition": "jaro_winkler_similarity(\"given_name_l\", \"given_name_r\") >= 0.95",
+                    "label_for_charts": "Jaro_winkler_similarity >= 0.95",
+                    "m_probability": 0.07194035707427637,
+                    "u_probability": 0.0007557668295033845
+                },
+                {
+                    "sql_condition": "jaro_winkler_similarity(\"given_name_l\", \"given_name_r\") >= 0.88",
+                    "label_for_charts": "Jaro_winkler_similarity >= 0.88",
+                    "m_probability": 0.035970178625998606,
+                    "u_probability": 0.0015181055444807114
+                },
+                {
+                    "sql_condition": "ELSE",
+                    "label_for_charts": "All other comparisons",
+                    "m_probability": 0.19666603482388934,
+                    "u_probability": 0.9931652391070999
+                }
+            ],
+            "comparison_description": "Exact match vs. Given_Name within jaro_winkler thresholds 0.95, 0.88 vs. anything else"
+        },
+        {
+            "output_column_name": "surname",
+            "comparison_levels": [
+                {
+                    "sql_condition": "\"surname_l\" IS NULL OR \"surname_r\" IS NULL",
+                    "label_for_charts": "Null",
+                    "is_null_level": true
+                },
+                {
+                    "sql_condition": "\"surname_l\" = \"surname_r\"",
+                    "label_for_charts": "Exact match surname",
+                    "m_probability": 0.6473135983768863,
+                    "u_probability": 0.003543912753726091
+                },
+                {
+                    "sql_condition": "jaro_winkler_similarity(\"surname_l\", \"surname_r\") >= 0.95",
+                    "label_for_charts": "Jaro_winkler_similarity >= 0.95",
+                    "m_probability": 0.13224686503699198,
+                    "u_probability": 0.0004048406484924357
+                },
+                {
+                    "sql_condition": "jaro_winkler_similarity(\"surname_l\", \"surname_r\") >= 0.88",
+                    "label_for_charts": "Jaro_winkler_similarity >= 0.88",
+                    "m_probability": 0.06496337229913875,
+                    "u_probability": 0.0005501680607717716
+                },
+                {
+                    "sql_condition": "ELSE",
+                    "label_for_charts": "All other comparisons",
+                    "m_probability": 0.155476164286983,
+                    "u_probability": 0.9955010785370098
+                }
+            ],
+            "comparison_description": "Exact match vs. Surname within jaro_winkler thresholds 0.95, 0.88 vs. anything else"
+        },
+        {
+            "output_column_name": "date_of_birth",
+            "comparison_levels": [
+                {
+                    "sql_condition": "\"date_of_birth_l\" IS NULL OR \"date_of_birth_r\" IS NULL",
+                    "label_for_charts": "Null",
+                    "is_null_level": true
+                },
+                {
+                    "sql_condition": "\"date_of_birth_l\" = \"date_of_birth_r\"",
+                    "label_for_charts": "Exact match",
+                    "m_probability": 0.9439252336454407,
+                    "u_probability": 0.000992683314430263
+                },
+                {
+                    "sql_condition": "levenshtein(\"date_of_birth_l\", \"date_of_birth_r\") <= 1",
+                    "label_for_charts": "Levenshtein <= 1",
+                    "m_probability": 0.004672897196265004,
+                    "u_probability": 0.0009513215096623353
+                },
+                {
+                    "sql_condition": "levenshtein(\"date_of_birth_l\", \"date_of_birth_r\") <= 2",
+                    "label_for_charts": "Levenshtein <= 2",
+                    "m_probability": 0.009345794392530275,
+                    "u_probability": 0.013355509065854525
+                },
+                {
+                    "sql_condition": "ELSE",
+                    "label_for_charts": "All other comparisons",
+                    "m_probability": 0.04205607476576399,
+                    "u_probability": 0.9847004861100529
+                }
+            ],
+            "comparison_description": "Exact match vs. Date_Of_Birth within levenshtein thresholds 1, 2 vs. anything else"
+        },
+        {
+            "output_column_name": "address_1",
+            "comparison_levels": [
+                {
+                    "sql_condition": "\"address_1_l\" IS NULL OR \"address_1_r\" IS NULL",
+                    "label_for_charts": "Null",
+                    "is_null_level": true
+                },
+                {
+                    "sql_condition": "\"address_1_l\" = \"address_1_r\"",
+                    "label_for_charts": "Exact match",
+                    "m_probability": 0.624277644899666,
+                    "u_probability": 0.0009119149160216922
+                },
+                {
+                    "sql_condition": "jaro_winkler_similarity(\"address_1_l\", \"address_1_r\") >= 0.9",
+                    "label_for_charts": "Jaro_winkler_similarity >= 0.9",
+                    "m_probability": 0.29416227173889054,
+                    "u_probability": 0.0007329015953245932
+                },
+                {
+                    "sql_condition": "jaro_winkler_similarity(\"address_1_l\", \"address_1_r\") >= 0.7",
+                    "label_for_charts": "Jaro_winkler_similarity >= 0.7",
+                    "m_probability": 0.003443654251361572,
+                    "u_probability": 0.10524298425735798
+                },
+                {
+                    "sql_condition": "ELSE",
+                    "label_for_charts": "All other comparisons",
+                    "m_probability": 0.07811642911008193,
+                    "u_probability": 0.8931121992312957
+                }
+            ],
+            "comparison_description": "Exact match vs. Address_1 within jaro_winkler_similarity thresholds 0.9, 0.7 vs. anything else"
+        },
+        {
+            "output_column_name": "address_2",
+            "comparison_levels": [
+                {
+                    "sql_condition": "\"address_2_l\" IS NULL OR \"address_2_r\" IS NULL",
+                    "label_for_charts": "Null",
+                    "is_null_level": true
+                },
+                {
+                    "sql_condition": "\"address_2_l\" = \"address_2_r\"",
+                    "label_for_charts": "Exact match",
+                    "m_probability": 0.5564513723658319,
+                    "u_probability": 0.0012143058005470767
+                },
+                {
+                    "sql_condition": "jaro_winkler_similarity(\"address_2_l\", \"address_2_r\") >= 0.9",
+                    "label_for_charts": "Jaro_winkler_similarity >= 0.9",
+                    "m_probability": 0.3775420664616725,
+                    "u_probability": 0.0007490349464427231
+                },
+                {
+                    "sql_condition": "jaro_winkler_similarity(\"address_2_l\", \"address_2_r\") >= 0.7",
+                    "label_for_charts": "Jaro_winkler_similarity >= 0.7",
+                    "m_probability": 0.002702614246241527,
+                    "u_probability": 0.008538487102794182
+                },
+                {
+                    "sql_condition": "ELSE",
+                    "label_for_charts": "All other comparisons",
+                    "m_probability": 0.06465525404937489,
+                    "u_probability": 0.9894981721502161
+                }
+            ],
+            "comparison_description": "Exact match vs. Address_2 within jaro_winkler_similarity thresholds 0.9, 0.7 vs. anything else"
+        },
+        {
+            "output_column_name": "suburb",
+            "comparison_levels": [
+                {
+                    "sql_condition": "\"suburb_l\" IS NULL OR \"suburb_r\" IS NULL",
+                    "label_for_charts": "Null",
+                    "is_null_level": true
+                },
+                {
+                    "sql_condition": "\"suburb_l\" = \"suburb_r\"",
+                    "label_for_charts": "Exact match",
+                    "m_probability": 0.7010069755851057,
+                    "u_probability": 0.001586144899734466
+                },
+                {
+                    "sql_condition": "levenshtein(\"suburb_l\", \"suburb_r\") <= 2",
+                    "label_for_charts": "Levenshtein <= 2",
+                    "m_probability": 0.23294783150558673,
+                    "u_probability": 0.000649821143477602
+                },
+                {
+                    "sql_condition": "ELSE",
+                    "label_for_charts": "All other comparisons",
+                    "m_probability": 0.06604519290930755,
+                    "u_probability": 0.9977640339567879
+                }
+            ],
+            "comparison_description": "Exact match vs. Suburb within levenshtein threshold 2 vs. anything else"
+        },
+        {
+            "output_column_name": "state",
+            "comparison_levels": [
+                {
+                    "sql_condition": "\"state_l\" IS NULL OR \"state_r\" IS NULL",
+                    "label_for_charts": "Null",
+                    "is_null_level": true
+                },
+                {
+                    "sql_condition": "\"state_l\" = \"state_r\"",
+                    "label_for_charts": "Exact match",
+                    "m_probability": 0.9524296458115007,
+                    "u_probability": 0.23536172671371383
+                },
+                {
+                    "sql_condition": "levenshtein(\"state_l\", \"state_r\") <= 2",
+                    "label_for_charts": "Levenshtein <= 2",
+                    "m_probability": 0.03733255617870715,
+                    "u_probability": 0.07957162312739878
+                },
+                {
+                    "sql_condition": "ELSE",
+                    "label_for_charts": "All other comparisons",
+                    "m_probability": 0.010237798009792111,
+                    "u_probability": 0.6850666501588873
+                }
+            ],
+            "comparison_description": "Exact match vs. State within levenshtein threshold 2 vs. anything else"
+        },
+        {
+            "output_column_name": "street_number",
+            "comparison_levels": [
+                {
+                    "sql_condition": "\"street_number_l\" IS NULL OR \"street_number_r\" IS NULL",
+                    "label_for_charts": "Null",
+                    "is_null_level": true
+                },
+                {
+                    "sql_condition": "\"street_number_l\" = \"street_number_r\"",
+                    "label_for_charts": "Exact match",
+                    "m_probability": 0.8260313286085446,
+                    "u_probability": 0.014953845478393537,
+                    "tf_adjustment_column": "street_number",
+                    "tf_adjustment_weight": 1.0
+                },
+                {
+                    "sql_condition": "ELSE",
+                    "label_for_charts": "All other comparisons",
+                    "m_probability": 0.1739686713914555,
+                    "u_probability": 0.9850461545216065
+                }
+            ],
+            "comparison_description": "Exact match vs. anything else"
+        },
+        {
+            "output_column_name": "postcode",
+            "comparison_levels": [
+                {
+                    "sql_condition": "\"postcode_l\" IS NULL OR \"postcode_r\" IS NULL",
+                    "label_for_charts": "Null",
+                    "is_null_level": true
+                },
+                {
+                    "sql_condition": "\"postcode_l\" = \"postcode_r\"",
+                    "label_for_charts": "Exact match",
+                    "m_probability": 0.8154703834954198,
+                    "u_probability": 0.0018418418418418418,
+                    "tf_adjustment_column": "postcode",
+                    "tf_adjustment_weight": 1.0
+                },
+                {
+                    "sql_condition": "ELSE",
+                    "label_for_charts": "All other comparisons",
+                    "m_probability": 0.18452961650458022,
+                    "u_probability": 0.9981581581581581
+                }
+            ],
+            "comparison_description": "Exact match vs. anything else"
+        }
+    ],
+    "sql_dialect": "duckdb",
+    "linker_uid": "ARCKngaW",
+    "probability_two_random_records_match": 0.0001
+}
